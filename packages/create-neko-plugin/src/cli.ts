@@ -27,7 +27,7 @@ cli
       const pluginName = name || 'my-neko-plugin'
       const targetDir = options.dir || `./${pluginName}`
 
-      console.info(`✨ Scaffolding NekoAI plugin "${pluginName}" using template "${options.template}"...`)
+      console.info(`Scaffolding NekoAI plugin "${pluginName}" using template "${options.template}"...`)
 
       const result = await scaffoldPluginProject({
         name: pluginName,
@@ -37,7 +37,7 @@ cli
         author: options.author,
       })
 
-      console.info(`✅ Plugin successfully created at: ${result.targetDir}`)
+      console.info(`Plugin successfully created at: ${result.targetDir}`)
       console.info('   Generated files:')
       result.filesWritten.forEach(file => console.info(`     - ${file}`))
       console.info('\nNext steps:')
@@ -46,7 +46,7 @@ cli
       console.info('  pnpm test')
     }
     catch (err) {
-      console.error(`❌ Scaffolding failed: ${errorMessageFrom(err) ?? 'Unknown error'}`)
+      console.error(`Scaffolding failed: ${errorMessageFrom(err) ?? 'Unknown error'}`)
       process.exit(1)
     }
   })
@@ -55,12 +55,12 @@ cli
   .command('lint [dir]', 'Lint and validate a plugin manifest and security boundaries')
   .action(async (dir: string | undefined) => {
     const targetDir = dir || '.'
-    console.info(`🔍 Linting plugin package at: ${targetDir}...`)
+    console.info(`Linting plugin package at: ${targetDir}...`)
 
     const result = await lintPluginDirectory(targetDir)
 
     if (result.warnings.length > 0) {
-      console.warn(`\n⚠️  Warnings (${result.warnings.length}):`)
+      console.warn(`\nWarnings (${result.warnings.length}):`)
       result.warnings.forEach((w) => {
         const loc = w.file ? ` (${w.file}${w.line ? `:${w.line}` : ''})` : ''
         console.warn(`   [${w.code}] ${w.message}${loc}`)
@@ -68,7 +68,7 @@ cli
     }
 
     if (result.errors.length > 0) {
-      console.error(`\n❌ Errors (${result.errors.length}):`)
+      console.error(`\nErrors (${result.errors.length}):`)
       result.errors.forEach((e) => {
         const loc = e.file ? ` (${e.file}${e.line ? `:${e.line}` : ''})` : ''
         console.error(`   [${e.code}] ${e.message}${loc}`)
@@ -77,7 +77,7 @@ cli
       process.exit(1)
     }
 
-    console.info('\n✅ Plugin manifest and security boundaries verified successfully.')
+    console.info('\nPlugin manifest and security boundaries verified successfully.')
   })
 
 cli.help()

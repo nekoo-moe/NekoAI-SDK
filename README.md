@@ -12,19 +12,19 @@
 
 ---
 
-## 🌟 Overview
+## Overview
 
 The **NekoAI SDK** gives developers everything needed to build, test, and distribute custom extensions for the [NekoAI](https://github.com/nekoo-moe/NekoAI) desktop companion.
 
-- 🤖 **Agent Tools**: Equip the companion's AI character with custom functions, web tools, and system integrations.
-- 🎨 **Desktop UI & Kits**: Render floating HUD widgets, companion status panels, and interactive 2D canvas gamelets.
-- 🛡️ **Isolated Worker Sandbox**: Built-in crash circuit breaker, memory limits, and automated heartbeat watchdog.
-- 🚀 **Zero-Config Scaffolding**: Create production-ready plugins in seconds with `pnpm create @nekotech/neko-plugin`.
-- 🔍 **Security Linter**: Built-in manifest auditing to detect privilege escalation or excessive capability requests.
+- **Agent Tools**: Equip the companion's AI character with custom functions, web tools, and system integrations.
+- **Desktop UI & Kits**: Render floating HUD widgets, companion status panels, and interactive 2D canvas gamelets.
+- **Isolated Worker Sandbox**: Built-in crash circuit breaker, memory limits, and automated heartbeat watchdog.
+- **Zero-Config Scaffolding**: Create production-ready plugins in seconds with `pnpm create @nekotech/neko-plugin`.
+- **Security Linter**: Built-in manifest auditing to detect privilege escalation or excessive capability requests.
 
 ---
 
-## 📦 Packages in this Repository
+## Packages in this Repository
 
 | Package | Version | Description |
 | --- | --- | --- |
@@ -35,7 +35,7 @@ The **NekoAI SDK** gives developers everything needed to build, test, and distri
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Scaffold a New Plugin Project
 
@@ -84,7 +84,7 @@ npx @nekotech/create-neko-plugin lint .
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 - [Getting Started Guide](docs/getting-started.md)
 - [Architecture & Security Model](docs/architecture.md)
@@ -96,7 +96,7 @@ npx @nekotech/create-neko-plugin lint .
 
 ---
 
-## 💡 Reference Examples
+## Reference Examples
 
 Check out the [examples/](examples) directory for working starter plugins:
 - [`examples/acrobat-companion`](examples/acrobat-companion): Window management and desktop docking.
@@ -105,7 +105,7 @@ Check out the [examples/](examples) directory for working starter plugins:
 
 ---
 
-## 🛠️ Monorepo Development
+## Monorepo Development
 
 To contribute to this SDK:
 
@@ -126,6 +126,6 @@ pnpm test
 
 ---
 
-## 📄 License
+## License
 
 This repository is licensed under the [MIT License](LICENSE).
