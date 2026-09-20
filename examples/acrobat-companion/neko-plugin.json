@@ -1,0 +1,64 @@
+{
+  "$schema": "https://nekoai.moe/schemas/neko-plugin.v1.json",
+  "id": "com.nekoai.plugin.acrobat",
+  "name": "Adobe Acrobat PDF Operator",
+  "version": "1.1.0",
+  "description": "PDF form filling, signature stamping from preset vault, export, and cross-application handoff.",
+  "author": "NekoAI Official",
+  "license": "MIT",
+  "platform": ["windows", "macos"],
+  "gateway": {
+    "type": "native-app",
+    "executable": {
+      "windows": ["Acrobat.exe", "AcroRd32.exe"],
+      "macos": ["/Applications/Adobe Acrobat DC/Adobe Acrobat.app"]
+    },
+    "automationSurface": "ui-automation",
+    "requiredPermissions": [
+      "filesystem:read",
+      "filesystem:write",
+      "desktop:window_focus",
+      "desktop:synthetic_input",
+      "memory:personalization"
+    ]
+  },
+  "knowledge": {
+    "promptInjection": "When signing documents in Adobe Acrobat, prefer the Fill & Sign toolbar. Default signature stamps are stored in the user signature vault.",
+    "shortcuts": {
+      "fillAndSign": "Shift+F4",
+      "save": "Ctrl+S",
+      "print": "Ctrl+P"
+    },
+    "selectors": {
+      "fillAndSignButton": "UIA_Button_FillAndSign",
+      "signMenu": "UIA_MenuItem_Sign",
+      "signatureField": "UIA_Edit_Signature"
+    }
+  },
+  "recipes": [
+    {
+      "id": "sign-pdf",
+      "name": "Sign PDF Document",
+      "description": "Opens a target PDF, resolves signature stamp from vault, places the stamp, and saves the file.",
+      "riskLevel": "moderate_local_mutation",
+      "inputs": {
+        "filePath": {
+          "type": "string",
+          "required": true,
+          "description": "Absolute path to PDF file"
+        },
+        "signatureIdentifier": {
+          "type": "string",
+          "required": true,
+          "description": "Preset signature name or vault identifier"
+        },
+        "targetPage": {
+          "type": "integer",
+          "required": false,
+          "default": 1,
+          "description": "Target page number for signature stamping"
+        }
+      }
+    }
+  ]
+}

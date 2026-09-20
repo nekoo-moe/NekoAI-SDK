@@ -1,0 +1,26 @@
+{
+  "name": "@nekotech/sdk-monorepo",
+  "version": "0.11.4",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.34.5",
+  "description": "Monorepo for NekoAI Plugin SDK, protocol contracts, Tamagotchi kits, and scaffolding CLI",
+  "author": {
+    "name": "NekoTech Team",
+    "email": "airi@moeru.ai",
+    "url": "https://github.com/moeru-ai"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "pnpm -r --filter=\"./packages/*\" run build",
+    "test": "vitest run",
+    "typecheck": "pnpm -r --filter=\"./packages/*\" run typecheck",
+    "lint": "pnpm dlx @nekotech/create-neko-plugin lint examples/system-glance",
+    "clean": "rm -rf packages/*/dist"
+  },
+  "devDependencies": {
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

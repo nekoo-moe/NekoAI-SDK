@@ -1,0 +1,62 @@
+{
+  "name": "@nekotech/plugin-sdk-tamagotchi",
+  "type": "module",
+  "version": "0.11.4",
+  "description": "Tamagotchi-specific DX helpers for Project NekoAI plugins",
+  "author": {
+    "name": "NekoTech Team",
+    "email": "airi@moeru.ai",
+    "url": "https://github.com/moeru-ai"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nekoo-moe/NekoAI.git",
+    "directory": "packages/plugin-sdk-tamagotchi"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./widgets": {
+      "types": "./dist/widgets/index.d.mts",
+      "default": "./dist/widgets/index.mjs"
+    },
+    "./gamelet": {
+      "types": "./dist/gamelet/index.d.mts",
+      "default": "./dist/gamelet/index.mjs"
+    },
+    "./kits/gamelet": {
+      "types": "./dist/kits/gamelet/index.d.mts",
+      "default": "./dist/kits/gamelet/index.mjs"
+    },
+    "./kits/tool": {
+      "types": "./dist/kits/tool/index.d.mts",
+      "default": "./dist/kits/tool/index.mjs"
+    },
+    "./tools": {
+      "types": "./dist/tools/index.d.mts",
+      "default": "./dist/tools/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "README.md",
+    "dist",
+    "package.json"
+  ],
+  "scripts": {
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "build": "tsdown"
+  },
+  "dependencies": {
+    "@moeru/eventa": "catalog:",
+    "@nekotech/plugin-sdk": "workspace:^",
+    "nanoid": "catalog:",
+    "valibot": "catalog:",
+    "xsschema": "catalog:"
+  }
+}
