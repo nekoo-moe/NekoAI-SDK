@@ -32,7 +32,7 @@ pnpm create @nekotech/neko-plugin my-plugin --template desktop-ui
 
 ## Quick Start
 
-### 1. Define the Manifest (`plugins.json`)
+### 1. Define the Manifest (`plugin.json`)
 
 Every NekoAI plugin requires a manifest defining its identity, entrypoints, and requested capability permissions:
 

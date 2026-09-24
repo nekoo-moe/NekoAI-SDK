@@ -10,7 +10,7 @@ The `@nekotech/plugin-sdk-tamagotchi` package provides high-level kits for exten
 pnpm add @nekotech/plugin-sdk-tamagotchi
 ```
 
-Make sure your `plugins.json` declares the matching capabilities:
+Make sure your `plugin.json` declares the matching capabilities:
 ```json
 {
   "capabilities": [

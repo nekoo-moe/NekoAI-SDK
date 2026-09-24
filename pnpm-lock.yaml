@@ -47,15 +47,21 @@ importers:
 
   .:
     devDependencies:
+      '@types/node':
+        specifier: ^26.6.2
+        version: 26.6.2
       tsdown:
         specifier: 'catalog:'
-        version: 0.21.10(typescript@5.9.3)
+        version: 0.21.10(typescript@5.9.3)(unplugin-unused@0.6.0(rolldown@1.0.0-rc.17)(vite@8.3.0(@types/node@26.6.2)))
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
+      unplugin-unused:
+        specifier: ^0.6.0
+        version: 0.6.0(rolldown@1.0.0-rc.17)(vite@8.3.0(@types/node@26.6.2))
       vitest:
         specifier: 'catalog:'
-        version: 4.1.11(vite@8.3.0)
+        version: 4.1.11(@types/node@26.6.2)(vite@8.3.0(@types/node@26.6.2))
 
   packages/create-neko-plugin:
     dependencies:
@@ -171,6 +177,9 @@ packages:
 
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
+
+  '@jridgewell/remapping@2.3.5':
+    resolution: {integrity: sha512-LI9u/+laYG4Ds1TDKSJW2YPrIlcVYOwi2fUC6xB43lueCjgxV4lffOCZCtYFiH6TNOX+tQKXx97T4IKHbhyHEQ==}
 
   '@jridgewell/resolve-uri@3.1.2':
     resolution: {integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==}
@@ -433,6 +442,9 @@ packages:
   '@types/jsesc@2.5.1':
     resolution: {integrity: sha512-9VN+6yxLOPLOav+7PwjZbxiID2bVaeq0ED4qSQmdQTdjnXJSaCVKTR58t15oqH1H5t8Ng2ZX1SabJVoN9Q34bw==}
 
+  '@types/node@26.6.2':
+    resolution: {integrity: sha512-X1P21scMv4zGKLYqjdGjaKa7COa0RKVYYZZN/NfvLQ1JegxFhdhpZG/Lyn8AXx6CDUavKAd11v6BvfpkDByK8g==}
+
   '@valibot/to-json-schema@1.0.0-rc.0':
     resolution: {integrity: sha512-F3WDgnPzcDs9Y8qZwU9qfPnEJBQ6lCMCFjI7VsMjAza6yAixGr4cZ50gOy6zniSCk49GkFvq2a6cBKfZjTpyOw==}
     peerDependencies:
@@ -525,6 +537,10 @@ packages:
   es-toolkit@1.52.0:
     resolution: {integrity: sha512-XTNEJQh1tY1ZJVcf6ayP/2n4ZPyaHlW2FWs7xvw5ddPuhUVjLD3olQVQS7kf58JbAB48iL0uL/jerTrjtV3lDA==}
 
+  escape-string-regexp@5.0.0:
+    resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
+    engines: {node: '>=12'}
+
   estree-walker@3.0.3:
     resolution: {integrity: sha512-7RUKfXgSMMkzt6ZuXmqapOurLGPPfgj6l9uRZ7lRGolvk0y2yocc35LdcxKC5PQZdn2DMqioAQ2NoWcrTKmm6g==}
 
@@ -555,6 +571,9 @@ packages:
   import-without-cache@0.3.3:
     resolution: {integrity: sha512-bDxwDdF04gm550DfZHgffvlX+9kUlcz32UD0AeBTmVPFiWkrexF2XVmiuFFbDhiFuP8fQkrkvI2KdSNPYWAXkQ==}
     engines: {node: '>=20.19.0'}
+
+  js-tokens@10.0.0:
+    resolution: {integrity: sha512-lM/UBzQmfJRo9ABXbPWemivdCW8V2G8FHaHdypQaIy523snUjog0W71ayWXTjiR+ixeMyVHN2XcpnTd/liPg/Q==}
 
   jsesc@3.1.0:
     resolution: {integrity: sha512-/sM3dO2FOzXjKQhJuo0Q173wf2KOo8t4I8vHy6lF9poUp7bKT0/NHE8fPX23PwfhnykfqnC2xRxOnVw5XuGIaA==}
@@ -777,6 +796,49 @@ packages:
   unconfig-core@7.5.0:
     resolution: {integrity: sha512-Su3FauozOGP44ZmKdHy2oE6LPjk51M/TRRjHv2HNCWiDvfvCoxC2lno6jevMA91MYAdCdwP05QnWdWpSbncX/w==}
 
+  undici-types@8.9.0:
+    resolution: {integrity: sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg==}
+
+  unplugin-unused@0.6.0:
+    resolution: {integrity: sha512-ov+8yoEs5lyCjK7AqSUmpLuyEhtHwKtNtc1PrpwJVCNQjv+Dins4+7e1+ej57yo8lfiW/zOr9FAEmNmjgU+hFQ==}
+    engines: {node: ^22.18.0 || ^24.11.0 || >=26.0.0}
+
+  unplugin@3.4.0:
+    resolution: {integrity: sha512-9skdIFlCsPdFV7wUfZxNsFInlW+7nJmGu2gkTu0OUhF56aXGsHab9x52/QhdJ4lC7ZDPWTxbiC4ANqVlsuaW3w==}
+    engines: {node: ^20.19.0 || >=22.12.0}
+    peerDependencies:
+      '@farmfe/core': '*'
+      '@rsbuild/core': '*'
+      '@rspack/core': '*'
+      bun-types-no-globals: '*'
+      esbuild: '*'
+      rolldown: '*'
+      rollup: '*'
+      unloader: '*'
+      vite: '*'
+      webpack: '*'
+    peerDependenciesMeta:
+      '@farmfe/core':
+        optional: true
+      '@rsbuild/core':
+        optional: true
+      '@rspack/core':
+        optional: true
+      bun-types-no-globals:
+        optional: true
+      esbuild:
+        optional: true
+      rolldown:
+        optional: true
+      rollup:
+        optional: true
+      unloader:
+        optional: true
+      vite:
+        optional: true
+      webpack:
+        optional: true
+
   unrun@0.2.39:
     resolution: {integrity: sha512-h9FxYVpztY/wwq+bauLOh6Y3CWu2IVeRLq5lxzneBiIU9Tn86OGp9xiQrGhnYspAmg5dzdY0Cc8+Y70kuTARCg==}
     engines: {node: '>=20.19.0'}
@@ -879,6 +941,9 @@ packages:
       jsdom:
         optional: true
 
+  webpack-virtual-modules@0.6.2:
+    resolution: {integrity: sha512-66/V2i5hQanC51vBQKPH4aI8NMAcBW59FVBs+rC7eGHupMyfn34q7rZIE+ETlJ+XTevqfUhVVBgSUNSW2flEUQ==}
+
   why-is-node-running@2.3.0:
     resolution: {integrity: sha512-hUrmaWBdVDcxvYqnyh09zunKzROWjbZTiNy8dBEjkS7ehEDQibXJ7XvlmtbwuTclUiIyN+CyXQD4Vmko8fNm8w==}
     engines: {node: '>=8'}
@@ -961,6 +1026,11 @@ snapshots:
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
       '@jridgewell/sourcemap-codec': 1.6.0
+      '@jridgewell/trace-mapping': 0.3.31
+
+  '@jridgewell/remapping@2.3.5':
+    dependencies:
+      '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.31
 
   '@jridgewell/resolve-uri@3.1.2': {}
@@ -1110,6 +1180,10 @@ snapshots:
 
   '@types/jsesc@2.5.1': {}
 
+  '@types/node@26.6.2':
+    dependencies:
+      undici-types: 8.9.0
+
   '@valibot/to-json-schema@1.0.0-rc.0(valibot@1.5.0(typescript@5.9.3))':
     dependencies:
       valibot: 1.5.0(typescript@5.9.3)
@@ -1123,13 +1197,13 @@ snapshots:
       chai: 6.2.2
       tinyrainbow: 3.1.1
 
-  '@vitest/mocker@4.1.11(vite@8.3.0)':
+  '@vitest/mocker@4.1.11(vite@8.3.0(@types/node@26.6.2))':
     dependencies:
       '@vitest/spy': 4.1.11
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 8.3.0
+      vite: 8.3.0(@types/node@26.6.2)
 
   '@vitest/pretty-format@4.1.11':
     dependencies:
@@ -1191,6 +1265,8 @@ snapshots:
 
   es-toolkit@1.52.0: {}
 
+  escape-string-regexp@5.0.0: {}
+
   estree-walker@3.0.3:
     dependencies:
       '@types/estree': 1.0.9
@@ -1211,6 +1287,8 @@ snapshots:
   hookable@6.1.2: {}
 
   import-without-cache@0.3.3: {}
+
+  js-tokens@10.0.0: {}
 
   jsesc@3.1.0: {}
 
@@ -1372,7 +1450,7 @@ snapshots:
 
   tree-kill@1.2.2: {}
 
-  tsdown@0.21.10(typescript@5.9.3):
+  tsdown@0.21.10(typescript@5.9.3)(unplugin-unused@0.6.0(rolldown@1.0.0-rc.17)(vite@8.3.0(@types/node@26.6.2))):
     dependencies:
       ansis: 4.4.0
       cac: 7.0.0
@@ -1392,6 +1470,7 @@ snapshots:
       unrun: 0.2.39
     optionalDependencies:
       typescript: 5.9.3
+      unplugin-unused: 0.6.0(rolldown@1.0.0-rc.17)(vite@8.3.0(@types/node@26.6.2))
     transitivePeerDependencies:
       - '@ts-macro/tsc'
       - '@typescript/native-preview'
@@ -1409,6 +1488,35 @@ snapshots:
       '@quansync/fs': 1.1.0
       quansync: 1.0.0
 
+  undici-types@8.9.0: {}
+
+  unplugin-unused@0.6.0(rolldown@1.0.0-rc.17)(vite@8.3.0(@types/node@26.6.2)):
+    dependencies:
+      empathic: 2.1.0
+      escape-string-regexp: 5.0.0
+      js-tokens: 10.0.0
+      unplugin: 3.4.0(rolldown@1.0.0-rc.17)(vite@8.3.0(@types/node@26.6.2))
+    transitivePeerDependencies:
+      - '@farmfe/core'
+      - '@rsbuild/core'
+      - '@rspack/core'
+      - bun-types-no-globals
+      - esbuild
+      - rolldown
+      - rollup
+      - unloader
+      - vite
+      - webpack
+
+  unplugin@3.4.0(rolldown@1.0.0-rc.17)(vite@8.3.0(@types/node@26.6.2)):
+    dependencies:
+      '@jridgewell/remapping': 2.3.5
+      picomatch: 4.0.7
+      webpack-virtual-modules: 0.6.2
+    optionalDependencies:
+      rolldown: 1.0.0-rc.17
+      vite: 8.3.0(@types/node@26.6.2)
+
   unrun@0.2.39:
     dependencies:
       rolldown: 1.0.0-rc.17
@@ -1417,7 +1525,7 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.3
 
-  vite@8.3.0:
+  vite@8.3.0(@types/node@26.6.2):
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.7
@@ -1425,12 +1533,13 @@ snapshots:
       rolldown: 1.2.10
       tinyglobby: 0.2.17
     optionalDependencies:
+      '@types/node': 26.6.2
       fsevents: 2.3.3
 
-  vitest@4.1.11(vite@8.3.0):
+  vitest@4.1.11(@types/node@26.6.2)(vite@8.3.0(@types/node@26.6.2)):
     dependencies:
       '@vitest/expect': 4.1.11
-      '@vitest/mocker': 4.1.11(vite@8.3.0)
+      '@vitest/mocker': 4.1.11(vite@8.3.0(@types/node@26.6.2))
       '@vitest/pretty-format': 4.1.11
       '@vitest/runner': 4.1.11
       '@vitest/snapshot': 4.1.11
@@ -1447,10 +1556,14 @@ snapshots:
       tinyexec: 1.3.1
       tinyglobby: 0.2.17
       tinyrainbow: 3.1.1
-      vite: 8.3.0
+      vite: 8.3.0(@types/node@26.6.2)
       why-is-node-running: 2.3.0
+    optionalDependencies:
+      '@types/node': 26.6.2
     transitivePeerDependencies:
       - msw
+
+  webpack-virtual-modules@0.6.2: {}
 
   why-is-node-running@2.3.0:
     dependencies:

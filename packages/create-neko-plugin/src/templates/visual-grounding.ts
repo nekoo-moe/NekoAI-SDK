@@ -6,7 +6,7 @@ export const visualGroundingTemplate: PluginTemplateDefinition = {
 
   generateManifest(ctx: TemplateContext) {
     return {
-      $schema: 'https://nekoai.moe/schemas/neko-plugin.v1.json',
+      $schema: 'https://v2.nekoai.is-a.dev/schemas/v2.json',
       id: ctx.pluginId,
       name: ctx.pluginName,
       version: '1.0.0',

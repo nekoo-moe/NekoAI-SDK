@@ -1,5 +1,5 @@
 {
-  "$schema": "https://nekoai.moe/schemas/neko-plugin.v2.json",
+  "$schema": "https://v2.nekoai.is-a.dev/schemas/v2.json",
   "id": "com.nekoai.plugin.acrobat",
   "name": "Adobe Acrobat PDF Operator",
   "version": "1.1.0",

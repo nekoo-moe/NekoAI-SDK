@@ -456,9 +456,10 @@ export function hasCapabilityPermission(
 /**
  * Standard manifest filename for NekoAI plugins.
  */
-export const PLUGIN_MANIFEST_FILENAME = 'plugins.json'
+export const PLUGIN_MANIFEST_FILENAME = 'plugin.json'
 
 /**
- * Legacy manifest filename for backward compatibility.
+ * Legacy manifest filenames for backward compatibility.
  */
+export const LEGACY_PLUGIN_MANIFEST_FILENAMES = ['plugins.json', 'neko-plugin.json'] as const
 export const LEGACY_PLUGIN_MANIFEST_FILENAME = 'neko-plugin.json'

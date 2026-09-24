@@ -125,7 +125,7 @@ describe('create-neko-plugin: Registry Security Linter', () => {
     })
 
     // Overwrite manifest with high_risk_external recipe
-    const manifestPath = join(targetDir, 'plugins.json')
+    const manifestPath = join(targetDir, 'plugin.json')
     const manifest = {
       $schema: 'https://nekoai.moe/schemas/neko-plugin.v1.json',
       id: 'com.example.high-risk',

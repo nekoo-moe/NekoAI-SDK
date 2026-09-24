@@ -6,7 +6,7 @@ Scaffolding CLI generator and registry security linter for NekoAI plugins.
 
 - **Quick Scaffolding**: Generate production-ready plugin projects in seconds.
 - **Archetype Templates**: Built-in starter templates for `web-cdp`, `desktop-ui`, `visual-grounding`, and `ambient-readonly`.
-- **Security & Manifest Linter**: Validates `plugins.json` schemas, declared capabilities, wildcard restrictions, and sensitive capability combinations.
+- **Security & Manifest Linter**: Validates `plugin.json` schemas, declared capabilities, wildcard restrictions, and sensitive capability combinations.
 - **NekoAI SDK Ready**: Pre-configured with `@nekotech/plugin-sdk`, `@nekotech/plugin-protocol`, TypeScript, Vitest, and packaging scripts.
 
 ## Quick Start
@@ -66,7 +66,7 @@ npx @nekotech/create-neko-plugin lint .
 ```
 
 The linter validates:
-- Schema compliance of `plugins.json` (name, version, id, permissions, entrypoint).
+- Schema compliance of `plugin.json` (name, version, id, permissions, entrypoint).
 - High-risk capability combinations (e.g. demanding both screen control and network egress).
 - Wildcard permissions and missing description justifications.
 - Existence and export correctness of declared entrypoint modules.

@@ -19,8 +19,10 @@
     "clean": "rm -rf packages/*/dist"
   },
   "devDependencies": {
+    "@types/node": "^26.6.2",
     "tsdown": "catalog:",
     "typescript": "catalog:",
+    "unplugin-unused": "^0.6.0",
     "vitest": "catalog:"
   }
 }

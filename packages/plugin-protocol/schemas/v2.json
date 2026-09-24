@@ -381,7 +381,7 @@
     "gateway",
     "recipes"
   ],
-  "$id": "https://sdk.nekoai.is-a.dev/plugins/schemas/v2.json",
+  "$id": "https://v2.nekoai.is-a.dev/schemas/v2.json",
   "title": "NekoAI Plugin Manifest Schema v2",
   "description": "JSON Schema specification for NekoAI Plugin Protocol v2 manifests."
 }

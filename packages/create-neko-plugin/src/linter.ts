@@ -123,29 +123,35 @@ async function findSourceFiles(dir: string): Promise<string[]> {
  */
 export async function lintPluginDirectory(pluginDir: string): Promise<PluginLintResult> {
   const targetDir = resolve(pluginDir)
-  let manifestPath = join(targetDir, 'plugins.json')
+  let manifestPath = join(targetDir, 'plugin.json')
 
   let manifestContent: string
   try {
     manifestContent = await readFile(manifestPath, 'utf-8')
   }
   catch {
-    manifestPath = join(targetDir, 'neko-plugin.json')
+    manifestPath = join(targetDir, 'plugins.json')
     try {
       manifestContent = await readFile(manifestPath, 'utf-8')
     }
-    catch (err) {
-      return {
-        valid: false,
-        errors: [
-          {
-            level: 'error',
-            code: 'MISSING_MANIFEST',
-            message: `Could not find or read plugins.json at ${manifestPath}: ${errorMessageFrom(err) ?? 'Read error'}`,
-            file: manifestPath,
-          },
-        ],
-        warnings: [],
+    catch {
+      manifestPath = join(targetDir, 'neko-plugin.json')
+      try {
+        manifestContent = await readFile(manifestPath, 'utf-8')
+      }
+      catch (err) {
+        return {
+          valid: false,
+          errors: [
+            {
+              level: 'error',
+              code: 'MISSING_MANIFEST',
+              message: `Could not find or read plugin.json at ${manifestPath}: ${errorMessageFrom(err) ?? 'Read error'}`,
+              file: manifestPath,
+            },
+          ],
+          warnings: [],
+        }
       }
     }
   }

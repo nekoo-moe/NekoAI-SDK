@@ -1,6 +1,6 @@
 # Manifest Specification & Capability Permissions
 
-Every NekoAI plugin bundle must declare its metadata, gateway, and capabilities in a root `plugins.json` file (with legacy fallback to `neko-plugin.json`).
+Every NekoAI plugin bundle must declare its metadata, gateway, and capabilities in a root `plugin.json` file (with legacy fallback to `neko-plugin.json`).
 
 ---
 
@@ -8,7 +8,7 @@ Every NekoAI plugin bundle must declare its metadata, gateway, and capabilities 
 
 ```json
 {
-  "$schema": "https://nekoai.moe/schemas/neko-plugin.v2.json",
+  "$schema": "https://v2.nekoai.is-a.dev/schemas/v2.json",
   "id": "com.developer.my-plugin",
   "name": "my-plugin",
   "version": "1.0.0",
@@ -133,7 +133,7 @@ NekoAI classifies capabilities into three security risk tiers:
 
 When you run `npx @nekotech/create-neko-plugin lint .`, the linter evaluates your manifest against strict security guidelines:
 
-1. **Manifest File**: Discovers `plugins.json` (falling back to legacy `neko-plugin.json`).
+1. **Manifest File**: Discovers `plugin.json` (falling back to legacy `neko-plugin.json`).
 2. **Category Validation**: Ensures manifest v2 specifies a valid category from the recognized list.
 3. **No Wildcard Capabilities**: Requesting `*` or unbounded prefixes is prohibited.
 4. **Sensitive Combination Warning**: Requesting both `screen:capture` and unrestricted `network:fetch` triggers a warning, ensuring screen telemetry cannot be exfiltrated without explicit user acknowledgment.
