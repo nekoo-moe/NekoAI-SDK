@@ -183,6 +183,18 @@ export function createDefaultWorkerBootstrap(targetPlatform: string = process.pl
             error: err && err.message ? err.message : String(err),
           });
         }
+        return;
+      }
+
+      if (msg.type === 'config_update') {
+        if (activePlugin && typeof activePlugin.onConfigUpdate === 'function') {
+          try {
+            activePlugin.onConfigUpdate(msg.values);
+          } catch (err) {
+            // Non-fatal error in plugin onConfigUpdate hook
+          }
+        }
+        return;
       }
     });
   `
@@ -345,6 +357,19 @@ export class PluginSandbox {
         // Silently retry on next change
       }
     })
+  }
+
+  /**
+   * Propagates updated configuration values live to the running worker thread
+   * without restarting or interrupting active executions.
+   */
+  updateConfig(values: Record<string, unknown>): void {
+    if (this.worker && !this.isTerminated) {
+      this.worker.postMessage({
+        type: 'config_update',
+        values,
+      })
+    }
   }
 
   /**

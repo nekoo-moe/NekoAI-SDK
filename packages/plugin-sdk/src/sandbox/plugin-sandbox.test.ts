@@ -256,7 +256,7 @@ describe('plugin worker sandbox (issue #157 / milestone 5.3)', () => {
         id: 'com.nekoai.plugin.probe',
         name: 'Platform Probe Plugin',
         version: '1.0.0',
-        platform: ['linux', 'darwin', 'windows'],
+        platform: ['linux', 'macos', 'windows'],
         gateway: {
           type: 'native-app',
           automationSurface: 'ui-automation',
@@ -292,7 +292,7 @@ describe('plugin worker sandbox (issue #157 / milestone 5.3)', () => {
         id: 'com.nekoai.plugin.probe',
         name: 'Platform Probe Plugin',
         version: '1.0.0',
-        platform: ['linux', 'darwin', 'windows'],
+        platform: ['linux', 'macos', 'windows'],
         gateway: {
           type: 'native-app',
           automationSurface: 'ui-automation',

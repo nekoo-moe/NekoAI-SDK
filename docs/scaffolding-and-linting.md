@@ -42,7 +42,7 @@ npx @nekotech/create-neko-plugin lint .
 
 ### What the Linter Checks
 
-- Valid JSON structure and adherence to `neko-plugin.json` schema.
+- Valid JSON structure and adherence to `plugins.json` (or `neko-plugin.json`) schema.
 - Correct semver version formatting.
 - Existence and valid exports of the compiled entrypoint (`dist/index.mjs`).
 - Flagging of excessive or wildcard capability requests.

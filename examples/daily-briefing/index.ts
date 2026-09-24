@@ -32,7 +32,12 @@ export const dailyBriefingPlugin = definePlugin({
   description: 'Multi-source parallel read-only harvester across Calendar, Email, GitHub/Jira, and Git workspace status.',
   author: 'NekoAI Official',
   license: 'MIT',
+  category: 'system',
+  tags: ['ambient', 'harvester', 'morning-routine'],
   platform: ['windows', 'linux', 'macos'],
+  contributions: {
+    icon: 'i-solar:sun-fog-bold-duotone',
+  },
   gateway: {
     type: 'native-app',
     automationSurface: 'native-api',

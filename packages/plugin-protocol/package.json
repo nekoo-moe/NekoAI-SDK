@@ -22,7 +22,8 @@
     "./types": {
       "types": "./dist/types/index.d.mts",
       "default": "./dist/types/index.mjs"
-    }
+    },
+    "./schemas/v2.json": "./schemas/v2.json"
   },
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",

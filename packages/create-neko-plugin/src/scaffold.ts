@@ -73,8 +73,8 @@ export async function scaffoldPluginProject(options: ScaffoldOptions): Promise<S
 
   const filesWritten: string[] = []
 
-  // 1. Write neko-plugin.json manifest
-  const manifestPath = resolve(targetDir, 'neko-plugin.json')
+  // 1. Write plugins.json manifest
+  const manifestPath = resolve(targetDir, 'plugins.json')
   const manifestData = template.generateManifest(ctx)
   await writeFile(manifestPath, JSON.stringify(manifestData, null, 2), 'utf-8')
   filesWritten.push(manifestPath)

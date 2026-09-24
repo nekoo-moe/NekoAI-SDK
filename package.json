@@ -15,7 +15,7 @@
     "build": "pnpm -r --filter=\"./packages/*\" run build",
     "test": "vitest run",
     "typecheck": "pnpm -r --filter=\"./packages/*\" run typecheck",
-    "lint": "pnpm dlx @nekotech/create-neko-plugin lint examples/system-glance",
+    "lint": "node packages/create-neko-plugin/bin/create-neko-plugin.js lint examples/acrobat-companion && node packages/create-neko-plugin/bin/create-neko-plugin.js lint examples/daily-briefing && node packages/create-neko-plugin/bin/create-neko-plugin.js lint examples/starter-tool",
     "clean": "rm -rf packages/*/dist"
   },
   "devDependencies": {

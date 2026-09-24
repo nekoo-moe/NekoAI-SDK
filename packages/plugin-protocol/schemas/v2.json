@@ -1,0 +1,387 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[\\w-]+(\\.[\\w-]+)+$"
+    },
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[\\w.-]+)?(?:\\+[\\w.-]+)?$"
+    },
+    "description": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "license": {
+      "type": "string"
+    },
+    "category": {
+      "enum": [
+        "essential",
+        "gaming",
+        "messaging",
+        "productivity",
+        "developer",
+        "system",
+        "creative",
+        "custom"
+      ]
+    },
+    "subCategory": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "platform": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "windows",
+          "linux",
+          "macos",
+          "web"
+        ]
+      }
+    },
+    "gateway": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": [
+            "native-app",
+            "browser-cdp",
+            "mcp",
+            "ui-automation",
+            "native-ipc"
+          ]
+        },
+        "executable": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          }
+        },
+        "automationSurface": {
+          "enum": [
+            "ui-automation",
+            "browser-cdp",
+            "native-api",
+            "visual-grounding"
+          ]
+        },
+        "requiredPermissions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "automationSurface",
+        "requiredPermissions"
+      ]
+    },
+    "knowledge": {
+      "type": "object",
+      "properties": {
+        "promptInjection": {
+          "type": "string"
+        },
+        "shortcuts": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "selectors": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "visualAnchors": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "templatePath": {
+                    "type": "string"
+                  },
+                  "confidenceThreshold": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "id",
+                  "templatePath"
+                ]
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          ]
+        }
+      },
+      "required": []
+    },
+    "recipes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "riskLevel": {
+            "enum": [
+              "read_only",
+              "reversible_local",
+              "moderate_local_mutation",
+              "high_risk_external"
+            ]
+          },
+          "inputs": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "enum": [
+                    "string",
+                    "number",
+                    "integer",
+                    "boolean",
+                    "object",
+                    "array"
+                  ]
+                },
+                "description": {
+                  "type": "string"
+                },
+                "required": {
+                  "type": "boolean"
+                },
+                "default": {}
+              },
+              "required": [
+                "type"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "description",
+          "riskLevel"
+        ]
+      }
+    },
+    "settings": {
+      "type": "object",
+      "properties": {
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "title"
+            ]
+          }
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "boolean",
+                  "string",
+                  "number",
+                  "select",
+                  "slider",
+                  "secret",
+                  "keybinding"
+                ]
+              },
+              "label": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "defaultValue": {},
+              "required": {
+                "type": "boolean"
+              },
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "boolean"
+                        }
+                      ]
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "value"
+                  ]
+                }
+              },
+              "min": {
+                "type": "number"
+              },
+              "max": {
+                "type": "number"
+              },
+              "step": {
+                "type": "number"
+              },
+              "readOnly": {
+                "type": "boolean"
+              },
+              "secret": {
+                "type": "boolean"
+              },
+              "group": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "key",
+              "type",
+              "label",
+              "defaultValue"
+            ]
+          }
+        }
+      },
+      "required": [
+        "fields"
+      ]
+    },
+    "contributions": {
+      "type": "object",
+      "properties": {
+        "icon": {
+          "type": "string"
+        },
+        "customSettingsRoute": {
+          "type": "string"
+        },
+        "hasOverlayWidget": {
+          "type": "boolean"
+        },
+        "quickCommands": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "recipeId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "recipeId"
+            ]
+          }
+        }
+      },
+      "required": []
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "version",
+    "category",
+    "platform",
+    "gateway",
+    "recipes"
+  ],
+  "$id": "https://sdk.nekoai.is-a.dev/plugins/schemas/v2.json",
+  "title": "NekoAI Plugin Manifest Schema v2",
+  "description": "JSON Schema specification for NekoAI Plugin Protocol v2 manifests."
+}

@@ -54,7 +54,7 @@ All inter-process communication between the host and the plugin worker uses `@mo
 ## 3. Host Capabilities Gatekeeper
 
 Whenever a plugin requests a capability (e.g. `system:resource-read`, `screen:capture`, `tamagotchi:widget-mount`):
-1. **Static Validation**: At load time, the host checks whether the requested capability is declared in the plugin's `neko-plugin.json`.
+1. **Static Validation**: At load time, the host checks whether the requested capability is declared in the plugin's `plugins.json` (or legacy `neko-plugin.json`).
 2. **Dynamic Enforcement**: When the plugin attempts to execute a gated method (such as calling a system API or mounting a widget), the host verifies that permission tokens match the declared capabilities. Undeclared access throws a `SecurityError`.
 
 ---
@@ -63,7 +63,7 @@ Whenever a plugin requests a capability (e.g. `system:resource-read`, `screen:ca
 
 ### Startup Sequence
 
-1. Host discovers `neko-plugin.json` and parses requested capabilities.
+1. Host discovers `plugins.json` (or legacy `neko-plugin.json`) and parses requested capabilities.
 2. Host spawns a `PluginSandbox` worker thread.
 3. Worker imports the compiled entrypoint (`dist/index.mjs`) via cross-platform file URL resolution.
 4. Worker invokes `plugin.setup(ctx)` and collects registered tools and kit handles.

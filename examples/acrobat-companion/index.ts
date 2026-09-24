@@ -23,7 +23,12 @@ export const acrobatPlugin = definePlugin({
   description: 'PDF form filling, signature stamping from preset vault, export, and cross-application handoff.',
   author: 'NekoAI Official',
   license: 'MIT',
+  category: 'productivity',
+  tags: ['pdf', 'forms', 'signature-vault'],
   platform: ['windows', 'macos'],
+  contributions: {
+    icon: 'i-simple-icons:adobeacrobatreader',
+  },
   gateway: {
     type: 'native-app',
     executable: {

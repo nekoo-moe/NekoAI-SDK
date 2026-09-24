@@ -7,11 +7,26 @@ import type {
   ActionRiskLevel,
   CapabilityPermission,
   InterfaceGateway,
+  PluginCategory,
+  PluginContributions,
   PluginManifest,
+  PluginManifestV2,
   PluginPlatform,
+  PluginSettings,
   RecipeInput,
   SemanticKnowledge,
+  SettingsFieldDefinition,
+  SettingsGroupDefinition,
 } from '@nekotech/plugin-protocol'
+
+export type {
+  PluginCategory,
+  PluginContributions,
+  PluginManifestV2,
+  PluginSettings,
+  SettingsFieldDefinition,
+  SettingsGroupDefinition,
+}
 
 /**
  * Window handle abstraction for OS-level window management.
@@ -159,9 +174,14 @@ export interface NekoPluginDefinition {
   description?: string
   author?: string
   license?: string
+  category?: PluginCategory
+  subCategory?: string
+  tags?: string[]
   platform: PluginPlatform[]
   gateway?: InterfaceGateway
   knowledge?: SemanticKnowledge
+  settings?: PluginSettings
+  contributions?: PluginContributions
   setup: (context: PluginSetupContext) => void | Promise<void>
 }
 
@@ -175,9 +195,14 @@ export interface NekoPlugin {
   description?: string
   author?: string
   license?: string
+  category?: PluginCategory
+  subCategory?: string
+  tags?: string[]
   platform: PluginPlatform[]
   gateway?: InterfaceGateway
   knowledge?: SemanticKnowledge
+  settings?: PluginSettings
+  contributions?: PluginContributions
   recipes: ActionRecipe[]
   setup: () => Promise<void>
   getRecipe: (id: string) => ActionRecipe | undefined

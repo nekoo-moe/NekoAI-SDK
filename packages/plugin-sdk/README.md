@@ -32,7 +32,7 @@ pnpm create @nekotech/neko-plugin my-plugin --template desktop-ui
 
 ## Quick Start
 
-### 1. Define the Manifest (`neko-plugin.json`)
+### 1. Define the Manifest (`plugins.json`)
 
 Every NekoAI plugin requires a manifest defining its identity, entrypoints, and requested capability permissions:
 
@@ -152,7 +152,7 @@ export default definePlugin({
 
 ## Security & Capability Permissions
 
-NekoAI enforces strict least-privilege sandboxing. Plugins cannot execute sensitive operations without declaring required capabilities in `neko-plugin.json`.
+NekoAI enforces strict least-privilege sandboxing. Plugins cannot execute sensitive operations without declaring required capabilities in `plugins.json`.
 
 | Capability | Category | Description |
 | --- | --- | --- |

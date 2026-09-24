@@ -1,0 +1,29 @@
+{
+  "$schema": "https://nekoai.moe/schemas/neko-plugin.v2.json",
+  "id": "com.example.starter-tool",
+  "name": "starter-tool",
+  "version": "1.0.0",
+  "description": "Minimal reference starter plugin exposing an AI agent tool",
+  "author": "NekoAI Developer",
+  "license": "MIT",
+  "category": "developer",
+  "tags": [
+    "tool",
+    "starter",
+    "agent"
+  ],
+  "platform": [
+    "windows",
+    "linux",
+    "macos",
+    "web"
+  ],
+  "gateway": {
+    "type": "native-app",
+    "automationSurface": "native-api",
+    "requiredPermissions": [
+      "memory:personalization"
+    ]
+  },
+  "recipes": []
+}

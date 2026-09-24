@@ -48,13 +48,14 @@
     "package.json"
   ],
   "scripts": {
-    "test": "vitest",
+    "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "build": "tsdown"
   },
   "dependencies": {
     "@moeru/eventa": "catalog:",
     "@nekotech/plugin-sdk": "workspace:^",
+    "@valibot/to-json-schema": "catalog:",
     "nanoid": "catalog:",
     "valibot": "catalog:",
     "xsschema": "catalog:"

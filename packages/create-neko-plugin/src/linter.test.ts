@@ -125,7 +125,7 @@ describe('create-neko-plugin: Registry Security Linter', () => {
     })
 
     // Overwrite manifest with high_risk_external recipe
-    const manifestPath = join(targetDir, 'neko-plugin.json')
+    const manifestPath = join(targetDir, 'plugins.json')
     const manifest = {
       $schema: 'https://nekoai.moe/schemas/neko-plugin.v1.json',
       id: 'com.example.high-risk',
@@ -157,12 +157,12 @@ describe('create-neko-plugin: Registry Security Linter', () => {
     expect(result.errors.some(e => e.code === 'MISSING_MANDATORY_CONSENT_GATE')).toBe(true)
   })
 
-  it('validates that all pioneer reference plugins pass the linter', async () => {
-    const pioneers = ['youtube', 'discord', 'zalo', 'acrobat', 'star-rail', 'daily-briefing']
+  it('validates that all example reference plugins pass the linter', async () => {
+    const examples = ['acrobat-companion', 'daily-briefing', 'starter-tool']
 
-    for (const pioneer of pioneers) {
-      const pioneerDir = resolve(__dirname, `../../plugin-pioneers/src/plugins/${pioneer}`)
-      const result = await lintPluginDirectory(pioneerDir)
+    for (const example of examples) {
+      const exampleDir = resolve(__dirname, `../../../examples/${example}`)
+      const result = await lintPluginDirectory(exampleDir)
 
       expect(result.valid).toBe(true)
       expect(result.errors).toHaveLength(0)

@@ -1,17 +1,34 @@
 {
-  "$schema": "https://nekoai.moe/schemas/neko-plugin.v1.json",
+  "$schema": "https://nekoai.moe/schemas/neko-plugin.v2.json",
   "id": "com.nekoai.plugin.acrobat",
   "name": "Adobe Acrobat PDF Operator",
   "version": "1.1.0",
   "description": "PDF form filling, signature stamping from preset vault, export, and cross-application handoff.",
   "author": "NekoAI Official",
   "license": "MIT",
-  "platform": ["windows", "macos"],
+  "category": "productivity",
+  "tags": [
+    "pdf",
+    "forms",
+    "signature-vault"
+  ],
+  "platform": [
+    "windows",
+    "macos"
+  ],
+  "contributions": {
+    "icon": "i-simple-icons:adobeacrobatreader"
+  },
   "gateway": {
     "type": "native-app",
     "executable": {
-      "windows": ["Acrobat.exe", "AcroRd32.exe"],
-      "macos": ["/Applications/Adobe Acrobat DC/Adobe Acrobat.app"]
+      "windows": [
+        "Acrobat.exe",
+        "AcroRd32.exe"
+      ],
+      "macos": [
+        "/Applications/Adobe Acrobat DC/Adobe Acrobat.app"
+      ]
     },
     "automationSurface": "ui-automation",
     "requiredPermissions": [

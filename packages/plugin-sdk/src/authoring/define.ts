@@ -56,9 +56,14 @@ export function definePlugin(definition: NekoPluginDefinition): NekoPlugin {
     description: definition.description,
     author: definition.author,
     license: definition.license,
+    category: definition.category,
+    subCategory: definition.subCategory,
+    tags: definition.tags,
     platform: definition.platform,
     gateway: definition.gateway,
     knowledge: definition.knowledge,
+    settings: definition.settings,
+    contributions: definition.contributions,
     recipes,
 
     async setup(): Promise<void> {
@@ -90,6 +95,9 @@ export function definePlugin(definition: NekoPluginDefinition): NekoPlugin {
         description: definition.description,
         author: definition.author,
         license: definition.license,
+        category: definition.category,
+        subCategory: definition.subCategory,
+        tags: definition.tags,
         platform: definition.platform,
         gateway: definition.gateway ?? {
           type: 'native-app',
@@ -98,6 +106,8 @@ export function definePlugin(definition: NekoPluginDefinition): NekoPlugin {
         },
         knowledge: definition.knowledge,
         recipes: recipes.map(r => r.definition),
+        settings: definition.settings,
+        contributions: definition.contributions,
       }
 
       return parsePluginManifest(rawManifest)

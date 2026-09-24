@@ -35,7 +35,7 @@
   "scripts": {
     "build": "tsdown",
     "dev": "pnpm run build",
-    "test": "vitest",
+    "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

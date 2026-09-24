@@ -67,11 +67,17 @@ export interface PluginWorkerConsentResultMessage {
   approved: boolean
 }
 
+export interface PluginWorkerConfigUpdateMessage {
+  type: 'config_update'
+  values: Record<string, unknown>
+}
+
 export type HostToWorkerMessage
   = | PluginWorkerInitMessage
     | PluginWorkerExecuteMessage
     | PluginWorkerBridgeResultMessage
     | PluginWorkerConsentResultMessage
+    | PluginWorkerConfigUpdateMessage
 
 export type WorkerToHostMessage
   = | PluginWorkerInitAckMessage

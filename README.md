@@ -99,8 +99,8 @@ npx @nekotech/create-neko-plugin lint .
 ## Reference Examples
 
 Check out the [examples/](examples) directory for working starter plugins:
-- [`examples/acrobat-companion`](examples/acrobat-companion): Window management and desktop docking.
-- [`examples/system-glance`](examples/system-glance): System hardware telemetry & floating HUD widget.
+- [`examples/acrobat-companion`](examples/acrobat-companion): Desktop PDF form filling and signature vault companion.
+- [`examples/daily-briefing`](examples/daily-briefing): Ambient multi-source daily agenda and git harvester.
 - [`examples/starter-tool`](examples/starter-tool): Minimal standalone AI tool plugin.
 
 ---

@@ -55,7 +55,7 @@ A standard NekoAI plugin repository contains:
 
 ```
 my-plugin/
-├── neko-plugin.json      # Plugin identity, capabilities & entrypoint specification
+├── plugins.json          # Plugin identity, capabilities & entrypoint specification
 ├── package.json          # Node package dependencies
 ├── tsconfig.json         # TypeScript compiler config
 ├── tsdown.config.ts      # Zero-config bundler setup (or rollup/vite)

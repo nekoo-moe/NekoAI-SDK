@@ -22,6 +22,7 @@ import type {
 
 import vm from 'node:vm'
 
+import { pathToFileURL } from 'node:url'
 import { parentPort } from 'node:worker_threads'
 
 import { errorMessageFrom } from '@moeru/std'
@@ -203,7 +204,10 @@ export function initializeWorkerRuntime() {
       try {
         let loadedModule: any
         if (message.pluginPath) {
-          loadedModule = await import(message.pluginPath)
+          const fileUrl = message.pluginPath.startsWith('file://')
+            ? message.pluginPath
+            : pathToFileURL(message.pluginPath).href
+          loadedModule = await import(fileUrl)
         }
         else if (message.pluginCode) {
           // Dynamic evaluated script for test fixtures

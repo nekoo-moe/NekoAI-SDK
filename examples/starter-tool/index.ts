@@ -2,8 +2,10 @@ import { definePlugin, defineTool } from '@nekotech/plugin-sdk'
 import * as v from 'valibot'
 
 export default definePlugin({
+  id: 'com.example.starter-tool',
   name: 'starter-tool',
   version: '1.0.0',
+  category: 'developer',
   setup(ctx) {
     ctx.tools.register(
       defineTool({
@@ -20,7 +22,7 @@ export default definePlugin({
             timestamp: Date.now(),
           }
         },
-      })
+      }),
     )
 
     return () => {

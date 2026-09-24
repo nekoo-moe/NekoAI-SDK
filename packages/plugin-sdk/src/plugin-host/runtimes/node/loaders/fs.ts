@@ -1,8 +1,9 @@
 import type { Extension } from '../../../../extension'
 import type { ExtensionLoadOptions, ExtensionManifestV1 } from '../../../shared/types'
 
-import { isAbsolute, join } from 'node:path'
+import { isAbsolute, join, win32 } from 'node:path'
 import { cwd } from 'node:process'
+import { pathToFileURL } from 'node:url'
 
 function isExtensionDefinition(value: unknown): value is Extension {
   return typeof value === 'object'
@@ -66,12 +67,17 @@ export class FileSystemLoader {
       )
     }
 
-    return isAbsolute(entrypoint) ? entrypoint : join(root, entrypoint)
+    const isExplicitlyAbsolute = isAbsolute(entrypoint) || win32.isAbsolute(entrypoint)
+    return isExplicitlyAbsolute ? entrypoint : join(root, entrypoint)
   }
 
   async loadExtensionFor(manifest: ExtensionManifestV1, options?: ExtensionLoadOptions) {
     const entrypoint = this.resolveEntrypointFor(manifest, options)
-    const extensionModule = await import(entrypoint)
+    const isWindowsPath = win32.isAbsolute(entrypoint)
+    const entrypointUrl = entrypoint.startsWith('file://')
+      ? entrypoint
+      : pathToFileURL(entrypoint, isWindowsPath ? { windows: true } : undefined).href
+    const extensionModule = await import(entrypointUrl)
     return coerceExtensionFromModule(extensionModule)
   }
 }
